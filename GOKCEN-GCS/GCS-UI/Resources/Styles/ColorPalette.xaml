@@ -1,0 +1,68 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Primary and Secondary Colors -->
+    <Color x:Key="PrimaryColor">#87251D</Color>
+    <!-- Deep Slate Blue -->
+    <Color x:Key="SecondaryColor">#E74C3C</Color>
+    <!-- Vibrant Red -->
+
+    <!-- Alternate Primary and Secondary Colors -->
+    <Color x:Key="AltPrimaryColor">#2C3E50</Color>
+    <!-- Muted Blue -->
+    <Color x:Key="AltSecondaryColor">#F39C12</Color>
+    <!-- Bright Amber -->
+
+    <!-- Background Colors -->
+    <Color x:Key="BackgroundDarkColor">#2B3E50</Color>
+    <!-- Charcoal Blue -->
+    <Color x:Key="BackgroundLightColor">#34495E</Color>
+    <!-- Dark Steel Blue -->
+
+    <!-- Alternative Background Colors -->
+    <Color x:Key="AltBackgroundDarkColor">#1F2A36</Color>
+    <!-- Dark Navy -->
+    <Color x:Key="AltBackgroundLightColor">#2C3E50</Color>
+    <!-- Blue-Green Shade -->
+
+    <!-- Functional Colors -->
+    <Color x:Key="SuccessColor">#27AE60</Color>
+    <!-- Fresh Green -->
+    <Color x:Key="WarningColor">#F1C40F</Color>
+    <!-- Bright Yellow -->
+    <Color x:Key="DangerColor">#E74C3C</Color>
+    <!-- Bright Red -->
+
+    <!-- Alternative Functional Colors -->
+    <Color x:Key="AltSuccessColor">#2ECC71</Color>
+    <!-- Bright Green -->
+    <Color x:Key="AltWarningColor">#F39C12</Color>
+    <!-- Golden Amber -->
+    <Color x:Key="AltDangerColor">#C0392B</Color>
+    <!-- Dark Red -->
+
+    <!-- Text Colors -->
+    <Color x:Key="TextLightColor">#ECF0F1</Color>
+    <!-- Very Light Gray -->
+    <Color x:Key="TextDarkColor">#2C3E50</Color>
+    <!-- Dark Charcoal Blue -->
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
+    <SolidColorBrush x:Key="AltPrimaryBrush" Color="{StaticResource AltPrimaryColor}" />
+    <SolidColorBrush x:Key="AltSecondaryBrush" Color="{StaticResource AltSecondaryColor}" />
+    <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDarkColor}" />
+    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLightColor}" />
+    <SolidColorBrush x:Key="AltBackgroundDarkBrush" Color="{StaticResource AltBackgroundDarkColor}" />
+    <SolidColorBrush x:Key="AltBackgroundLightBrush" Color="{StaticResource AltBackgroundLightColor}" />
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
+    <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}" />
+    <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />
+    <SolidColorBrush x:Key="AltSuccessBrush" Color="{StaticResource AltSuccessColor}" />
+    <SolidColorBrush x:Key="AltWarningBrush" Color="{StaticResource AltWarningColor}" />
+    <SolidColorBrush x:Key="AltDangerBrush" Color="{StaticResource AltDangerColor}" />
+    <SolidColorBrush x:Key="TextLightBrush" Color="{StaticResource TextLightColor}" />
+    <SolidColorBrush x:Key="TextDarkBrush" Color="{StaticResource TextDarkColor}" />
+
+</ResourceDictionary>
