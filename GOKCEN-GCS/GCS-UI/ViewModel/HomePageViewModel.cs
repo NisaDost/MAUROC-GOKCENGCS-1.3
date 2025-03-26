@@ -1,31 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace GCS_UI.ViewModel
 {
     class HomePageViewModel : ViewModelBase
     {
-        private double _taskBarHeight = 40;
-        private double _menuWidth = 200;
-        public double TaskBarHeight
+        private string _mapUrl = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory).Split("bin")[0], "Resources", "MapPage.html");
+
+        //public HomePageViewModel()
+        //{
+        //    string relativePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory).Split("bin")[0]);
+        //    _mapUrl = Path.Combine(relativePath, "Resources", "MapPage.html");
+        //}
+
+        public string MapUrl
         {
-            get { return _taskBarHeight; }
+            get { return _mapUrl; }
             set
             {
-                _taskBarHeight = value;
-                OnPropertyChanged("TaskBarHeight");
-            }
-        }
-        public double MenuWidth
-        {
-            get { return _menuWidth; }
-            set
-            {
-                _menuWidth = value;
-                OnPropertyChanged("MenuWidth");
+                _mapUrl = value;
+                OnPropertyChanged("MapUrl");
             }
         }
     }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        /* Set map container to fill the entire viewport inside WebView2 */
+        body, html, #map {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+        let map = L.map('map').setView([39.9255, 32.8663], 6); // Center map (Ankara, Turkey)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        let waypoints = [];
+        let markers = [];
+        let routeLayer = null;
+
+        // Add waypoint on click
+        function addWaypoint(lat, lng) {
+            let marker = L.marker([lat, lng]).addTo(map);
+            markers.push(marker); // Store marker for later removal
+            waypoints.push([lat, lng]);
+            console.log("Waypoint added:", lat, lng);
+        }
+
+        // Draw route connecting waypoints
+        function drawRoute() {
+            if (routeLayer) {
+                map.removeLayer(routeLayer);
+            }
+            if (waypoints.length < 2) {
+                alert("At least two waypoints are required to create a route.");
+                return;
+            }
+            routeLayer = L.polyline(waypoints, { color: 'blue' }).addTo(map);
+            console.log("Route drawn.");
+        }
+
+        // Clear waypoints and route
+        function clearRoute() {
+            waypoints = []; // Reset waypoint array
+
+            // Remove all markers from the map
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = []; // Reset marker array
+
+            // Remove the drawn route
+            if (routeLayer) {
+                map.removeLayer(routeLayer);
+                routeLayer = null;
+            }
+
+            console.log("Route and waypoints cleared.");
+        }
+
+        // Expose functions to WebView2 (C# can call these)
+        window.external.receiveMessage = function (command, lat, lng) {
+            if (command === "addWaypoint") {
+                addWaypoint(lat, lng);
+            } else if (command === "drawRoute") {
+                drawRoute();
+            } else if (command === "clearRoute") {  // Exposed to WebView2
+                clearRoute();
+            }
+        };
+
+        // Enable adding waypoints by clicking on the map
+        map.on('click', function (e) {
+            addWaypoint(e.latlng.lat, e.latlng.lng);
+        });
+    </script>
+</body>
+</html>
