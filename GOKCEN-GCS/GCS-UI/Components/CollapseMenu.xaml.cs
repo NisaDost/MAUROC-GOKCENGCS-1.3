@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
+using Microsoft.Web.WebView2.Wpf;
+using GCS_UI.ViewModel;
 
 namespace GCS_UI.Components
 {
-    /// <summary>
-    /// Interaction logic for CollapseMenu.xaml
-    /// </summary>
     public partial class CollapseMenu : UserControl
     {
         public CollapseMenu()
         {
             InitializeComponent();
+            var viewModel = new HomePageViewModel();
+            DataContext = viewModel;
+        }
+
+        private void MapWebView_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (DataContext is HomePageViewModel viewModel)
+            {
+                viewModel.WebViewInstance = (WebView2)sender;
+            }
         }
     }
 }

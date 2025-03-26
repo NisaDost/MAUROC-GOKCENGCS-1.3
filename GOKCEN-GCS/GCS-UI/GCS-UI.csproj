@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Command\" />
     <Folder Include="Model\" />
     <Folder Include="Resources\" />
     <Folder Include="Service\" />

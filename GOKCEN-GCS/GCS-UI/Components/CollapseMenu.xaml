@@ -27,7 +27,17 @@
         <!-- Sol Menü -->
         <Border Background="#333" x:Name="MenuPanel">
             <StackPanel>
-                <Button Content="☰" Background="Transparent" Foreground="White" />
+                <!-- Latitude Input -->
+                <TextBlock Text="Latitude:" Foreground="White" Margin="5"/>
+                <TextBox Text="{Binding Latitude, UpdateSourceTrigger=PropertyChanged}" Width="100" />
+
+                <!-- Longitude Input -->
+                <TextBlock Text="Longitude:" Foreground="White" Margin="5"/>
+                <TextBox Text="{Binding Longitude, UpdateSourceTrigger=PropertyChanged}" Width="100" />
+
+                <!-- Update Button -->
+                <Button Content="Update Map" Command="{Binding UpdateMapCommand}" />
+
                 <ListBox ItemsSource="{Binding MenuItems}" Background="Transparent" Foreground="White">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -43,7 +53,7 @@
             <!--<TextBlock Text="Map Area" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
             <!--Map Html resource-->
             
-            <wv2:WebView2 Name="MapWebView" Source="{Binding MapUrl}" />
+            <wv2:WebView2 Name="MapWebView" Source="{Binding MapUrl}" Loaded="MapWebView_Loaded" />
 
 
         </Grid>
