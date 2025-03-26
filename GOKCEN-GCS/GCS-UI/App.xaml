@@ -3,6 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:GCS_UI">
     <Application.Resources>
-         
+
+        <FontFamily x:Key="Inter">/resources/fonts/#inter-variablefont_opsz,wght.ttf</FontFamily> <!--İLGİLENİLECEK-->
+        <FontFamily x:Key="Montserrat">/resources/Fonts/#Montserrat</FontFamily>
+
+        <Style x:Key="HeaderFont" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="InputBox" TargetType="TextBox">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+
+        <Style x:Key="SubmitButton" TargetType="Button">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
     </Application.Resources>
 </Application>
