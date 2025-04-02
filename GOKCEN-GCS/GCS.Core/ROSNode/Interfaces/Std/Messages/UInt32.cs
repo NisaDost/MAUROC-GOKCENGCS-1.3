@@ -23,7 +23,7 @@ namespace ROSNode.Std
     /// Message interface definition for <c>std_msgs/msg/UInt32</c>.
     /// </remarks>
     [global::Rosidl.Runtime.TypeSupportAttribute("std_msgs/msg/UInt32")]
-    internal unsafe partial class UInt32 : global::Rosidl.Runtime.IMessage
+    public unsafe partial class UInt32 : global::Rosidl.Runtime.IMessage
     {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ros2cs", "1.3.2+da40d8cd913b1d7f1523f4fd2ce6a86ea7d47c2e")]

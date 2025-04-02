@@ -23,7 +23,7 @@ namespace ROSNode.Std
     /// Message interface definition for <c>std_msgs/msg/String</c>.
     /// </remarks>
     [global::Rosidl.Runtime.TypeSupportAttribute("std_msgs/msg/String")]
-    internal unsafe partial class String : global::Rosidl.Runtime.IMessage
+    public unsafe partial class String : global::Rosidl.Runtime.IMessage
     {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ros2cs", "1.3.2+da40d8cd913b1d7f1523f4fd2ce6a86ea7d47c2e")]

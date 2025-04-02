@@ -8,5 +8,13 @@ namespace GCS.Core.Models
 {
     public class BaseModel
     {
+
+        public void tmp()
+        {
+
+            ROSNode.Action.GoalInfo dnm = new ROSNode.Action.GoalInfo();
+
+        }
+
     }
 }

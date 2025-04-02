@@ -4,6 +4,7 @@ using Microsoft.Web.WebView2.Wpf;
 using GCS_UI.Command;
 using System.Globalization;
 using GCS.Service.Logging;
+using GCS.Service.ROS;
 
 namespace GCS_UI.ViewModel
 {
@@ -25,6 +26,8 @@ namespace GCS_UI.ViewModel
 
 
             LoggingService.Init();
+            RosNodeService rosNodeService = new RosNodeService();
+            rosNodeService.Init();
             LogDenemeCommand = new RelayCommand(LogDeneme);
         }
         public string Latitude

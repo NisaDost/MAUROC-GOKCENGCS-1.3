@@ -16,13 +16,6 @@ namespace GCS.Core.Interfaces.ROS
 
         IRclNode CreateNode(string nodeName);
 
-        IRclPublisher CreatePublisher<T>(string topicName) where T : IMessage;
-
-        IRclSubscription CreateSubscription<T>(string topicName) where T : IMessage;
-
-        public void SendToTopic<T>(string topicName, T messageContent) where T : IMessage;
-
-        public void SendToService<T>(string topicName, T messageContent) where T : IMessage;
 
 
 

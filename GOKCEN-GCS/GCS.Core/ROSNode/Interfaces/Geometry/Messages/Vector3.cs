@@ -20,7 +20,7 @@ namespace ROSNode.Geometry
     /// Message interface definition for <c>geometry_msgs/msg/Vector3</c>.
     /// </remarks>
     [global::Rosidl.Runtime.TypeSupportAttribute("geometry_msgs/msg/Vector3")]
-    internal unsafe partial class Vector3 : global::Rosidl.Runtime.IMessage
+    public unsafe partial class Vector3 : global::Rosidl.Runtime.IMessage
     {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("ros2cs", "1.3.2+da40d8cd913b1d7f1523f4fd2ce6a86ea7d47c2e")]
