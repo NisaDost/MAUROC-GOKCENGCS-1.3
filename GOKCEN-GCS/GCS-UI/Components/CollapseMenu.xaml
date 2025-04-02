@@ -36,7 +36,14 @@
                 <TextBox Text="{Binding Longitude, UpdateSourceTrigger=PropertyChanged}" Width="100" />
 
                 <!-- Update Button -->
-                <Button Content="Update Map" Command="{Binding UpdateMapCommand}" />
+                <Button Content="Update Map" Command="{Binding UpdateMapCommand}" Margin="0 0 0 10"/>
+
+                <Button Content="LOG DENEME" Command="{Binding LogDenemeCommand}">
+                    
+                    
+                    
+                </Button>
+                
 
                 <ListBox ItemsSource="{Binding MenuItems}" Background="Transparent" Foreground="White">
                     <ListBox.ItemTemplate>

@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Microsoft.Web.WebView2.Wpf;
 using GCS_UI.Command;
 using System.Globalization;
+using GCS.Service.Logging;
 
 namespace GCS_UI.ViewModel
 {
@@ -13,12 +14,18 @@ namespace GCS_UI.ViewModel
         private string _mapUrl; // = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory).Split("bin")[0], "Resources", "MapPage.html");
         public ICommand UpdateMapCommand { get; }
 
+        public ICommand LogDenemeCommand { get; }
+
         public HomePageViewModel()
         {
             string relativePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory).Split("bin")[0];
             _mapUrl = Path.Combine(relativePath, "Resources", "MapPage.html");
 
             UpdateMapCommand = new RelayCommand(UpdateMap);
+
+
+            LoggingService.Init();
+            LogDenemeCommand = new RelayCommand(LogDeneme);
         }
         public string Latitude
         {
@@ -66,6 +73,18 @@ namespace GCS_UI.ViewModel
                 }
             }
         }
+
+        private void LogDeneme()
+        {
+
+            LoggingService.Info("Deneme Info");
+            LoggingService.Warn("Deneme Warn");
+            LoggingService.Error("Deneme Error");
+            LoggingService.Trace("Deneme Trace");
+
+
+        }
+
 
         private WebView2 _webViewInstance;
         public WebView2 WebViewInstance
