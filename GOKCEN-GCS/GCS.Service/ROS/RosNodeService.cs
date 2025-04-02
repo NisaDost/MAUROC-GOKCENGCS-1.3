@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using GCS.Core.Interfaces.ROS;
+using GCS.Service.Logging;
 using Rcl;
 using Rosidl.Runtime;
 
@@ -22,25 +24,28 @@ namespace GCS.Service.ROS
         public RclContext CreateContext()
         {
             using var context = new RclContext();
+            RclContext = context;
             return context;
         }
 
         public IRclNode CreateNode(string nodeName)
         {
             using var node = RclContext.CreateNode(nodeName);
+            RclNode = node;
             return node;
         }
 
-        public IRclPublisher CreatePublisher<T>(string topicName) where T : Rosidl.Runtime.IMessage
+        public IRclPublisher CreatePublisher<T>(string topicName) where T : IMessage
         {
+
             using var pub = RclNode.CreatePublisher<T>(topicName);
             Publishers.Add(topicName, pub);
             return pub;
         }
 
-        public IRclSubscription CreateSubscription<T>(IRclNode rclNode, string topicName) where T : IMessage
+        public IRclSubscription CreateSubscription<T>(string topicName) where T : IMessage
         {
-            using var sub = rclNode.CreateSubscription<T>(topicName);
+            using var sub = RclNode.CreateSubscription<T>(topicName);
             Subscribers.Add(topicName, sub);
             return sub;
         }
@@ -48,11 +53,13 @@ namespace GCS.Service.ROS
         public void Init()
         {
 
-            RclContext = CreateContext();
-            RclNode = CreateNode("GCS");
+            CreateContext();
+            CreateNode("GCS");
+
+            
 
             //string yerine std gelmeli
-            CreatePublisher<string>("/gcs/deneme");
+            // TODO CreatePublisher<string>("/gcs/deneme");
             
 
             /*
@@ -63,19 +70,29 @@ namespace GCS.Service.ROS
              */
         }
 
-        public void SendToTopic<T>(string topicName, T messageContent)
+        public void SendToTopic<T>(string topicName, T messageContent) where T : IMessage
+        {
+
+            if (!Publishers.ContainsKey(topicName))
+            {
+                LoggingService.Error($"Send To Topic - Publisher Topic Not Found: {topicName}");
+                return;
+            }
+
+            var pub = Publishers[topicName];
+
+
+
+            //pub.Publish(messageContent);
+
+
+        }
+
+        public void SendToService<T>(string topicName, T messageContent) where T : IMessage
         {
             throw new NotImplementedException();
         }
 
-        public void SendToService<T>(string topicName, T messageContent)
-        {
-            throw new NotImplementedException();
-        }
-
-        
-
-        public void 
 
 
 

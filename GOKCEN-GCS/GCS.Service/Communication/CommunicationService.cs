@@ -21,9 +21,11 @@ namespace GCS.Service.Communication
         public async Task RclInit()
         {
 
-            await using var context = new RclContext(args);
+            /*await using var context = new RclContext(args);
             using var node = context.CreateNode("gcs_node");
-            using var pub = node.CreatePublisher<Std.String>("/chatter");
+            using var pub = node.CreatePublisher<Std.String>("/chatter");*/
+
+            throw new NotImplementedException();
 
         }
 

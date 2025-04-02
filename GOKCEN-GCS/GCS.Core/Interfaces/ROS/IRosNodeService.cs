@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Rcl;
+using Rosidl.Runtime;
 
 namespace GCS.Core.Interfaces.ROS
 {
@@ -13,15 +14,15 @@ namespace GCS.Core.Interfaces.ROS
 
         RclContext CreateContext();
 
-        IRclNode CreateNode(RclContext ctx, string nodeName);
+        IRclNode CreateNode(string nodeName);
 
-        IRclPublisher CreatePublisher<T>(IRclNode rclNode, string topicName) where T : Rosidl.Runtime.IMessage;
+        IRclPublisher CreatePublisher<T>(string topicName) where T : IMessage;
 
-        IRclSubscription CreateSubscription<T>(IRclNode rclNode, string topicName) where T : Rosidl.Runtime.IMessage;
+        IRclSubscription CreateSubscription<T>(string topicName) where T : IMessage;
 
-        public void SendToTopic<T>(string topicName, T messageContent);
+        public void SendToTopic<T>(string topicName, T messageContent) where T : IMessage;
 
-        public void SendToService<T>(string topicName, T messageContent);
+        public void SendToService<T>(string topicName, T messageContent) where T : IMessage;
 
 
 
